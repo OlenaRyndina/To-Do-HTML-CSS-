@@ -1,0 +1,158 @@
+
+:root {
+	--white:  #fff;
+	--gray:  #a5a5a5;
+	--light-gray:  #eaeaeb;
+	--light:  #f8f8f8;
+	--dark:  #212529;
+	--green:  #28a745;
+	--box-shadow-label:  0 1px 3px var(--light-gray), 0 1px 2px var(--light-gray);
+    --outline-label:  1px solid var(--light-gray);
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	color: var(--dark);
+	font: 16px/1.5 "Raleway", sans-serif;
+
+	background-image: linear-gradient(to right top, #845ec2, #9c5dc0, #b15dbc, #c55cb7, #d65db1);
+}
+
+.todo {
+	box-sizing: border-box;
+	width: 500px;
+	padding: 30px 50px;
+	background-color: var(--white);
+}
+
+/*Todo Header*/
+
+.todo-header {
+	margin-bottom: 2em;
+	padding-bottom: 1em;
+	border-bottom: 2px solid var(--light);
+}
+
+/*Welcome*/
+
+.welcome {
+	font-size: 2.3em;
+	line-height: 1.2;
+	color: var(--gray);
+}
+
+.welcome-name {
+	display: block;
+	font-size: 1.5em;
+	color: var(--dark);
+}
+
+/*Date*/
+
+.date {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+    color: var(--gray);
+	font-family: "Lora", serif;
+}
+
+.date-day {
+	margin-right: 5px;
+	font-size: 3em;
+	line-height: 1;
+}
+
+.date-month-year {
+	margin-right: auto;
+}
+
+.date-week-day {
+	align-self: flex-end;
+}
+
+/*ToDo Item*/
+
+.todo-item {
+	margin: 0 0 15px;
+}
+
+.todo-item-name {
+	margin: 0;
+	padding: 20px 10px;
+
+	overflow: hidden;
+
+	font-weight: 500;
+	font-size: 14px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+	cursor: pointer;
+}
+
+.todo-item label {
+	display: block;
+}
+
+.todo-item input[type="checkbox"]:hover ~ label,
+.todo-item input[type="checkbox"]:focus ~ label {
+    outline: var(--outline-label);
+    box-shadow: var(--box-shadow-label);
+}
+
+.todo-item input[type="checkbox"]:checked ~ label {
+	opacity: 0.5;
+}
+
+.checked-vertical-line {
+    position: relative;
+}
+
+.todo-item input[type="checkbox"]:checked ~ label .checked-vertical-line::before {
+    position: absolute;
+    top: 50%;
+
+    width: 100%;
+
+    display: block;
+    border-bottom: 1px solid var(--green);
+    
+    animation: vertical-line 0.3s linear;
+
+    content: "";
+}
+
+/*Utilities*/
+
+.sr-only {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	width: 1px;
+	height: 1px;
+
+	opacity: 0;
+}
+
+/*Animations*/
+
+@keyframes vertical-line {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 100%;
+	}
+}
